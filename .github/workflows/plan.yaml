@@ -46,7 +46,7 @@ jobs:
             -var="image_tag=${{ secrets.IMAGE_TAG }}" \
             -var="repository_name=${{ secrets.ECR_REPOSITORY }}" \
             -var="domain_name=${{ secrets.DOMAIN_NAME }}" \
-            -var="dns_zone=&{{ secrets.DNS_ZONE }}"
+            -var="dns_zone=${{ secrets.DNS_ZONE }}"
  
 
      
