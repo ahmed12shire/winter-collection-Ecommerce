@@ -13,7 +13,7 @@ resource "aws_acm_certificate_validation" "winter-acm-val" {
 }
 
 data "aws_route53_zone" "winter-zone" {
-  name = "${var.dns_zone}."
+  name = var.dns_zone
 }
 
 resource "aws_route53_record" "dns-validation-main" {
