@@ -10,7 +10,7 @@ terraform {
     bucket         = "2111-tf-state-bucket"   
     key            = "env/dev/terraform.tfstate"   
     region         = "us-east-1"
-    dynamodb_table = "winter-backend-db"
+    dynamodb_table = "winter-Ecomm"
     encrypt        = true                   
   }
 }
