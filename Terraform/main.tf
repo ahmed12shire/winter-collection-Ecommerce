@@ -58,6 +58,6 @@ module "route53" {
 
 module "acm" {
   source         = "./modules/acm"
-  dns_name       = var.dns_name
+  dns_name       = var.domain_name
   dns_record_ttl = 80
 }
