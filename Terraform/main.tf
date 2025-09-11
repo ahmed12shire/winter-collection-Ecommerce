@@ -61,4 +61,5 @@ module "acm" {
   domain_name    = var.domain_name
   dns_record_ttl = 80
   dns_zone       = var.dns_zone
+  zone_id        = module.route53.zone_id 
 }
