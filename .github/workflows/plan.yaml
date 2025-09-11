@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: debug
+        run: |
+          echo "DNS_ZONE is: ${{ secrets.DNS_ZONE }}"   
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
@@ -29,8 +33,6 @@ jobs:
         working-directory: ./Terraform
         run: terraform init -upgrade
 
-      - name: debug
-        run: echo "DNS_ZONE is: ${{ secrets.DNS_ZONE }}" 
 
       - name: Terraform Validate
         working-directory: ./Terraform
@@ -51,5 +53,3 @@ jobs:
             -var="domain_name=${{ secrets.DOMAIN_NAME }}" \
             -var="dns_zone=${{ secrets.DNS_ZONE }}"
  
-
-     
