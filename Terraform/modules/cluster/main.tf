@@ -4,7 +4,7 @@ resource "aws_ecs_cluster" "cluster" {
 
 resource "aws_ecs_task_definition" "task" {
   family                   = var.project_name
-  network_mode             = "bridge"  # Use EC2 instances
+  network_mode             = "bridge"  # Using EC2 instances
   requires_compatibilities = ["EC2"]
   cpu                      = "256"
   memory                   = "256"
