@@ -60,4 +60,5 @@ module "acm" {
   source         = "./modules/acm"
   domain_name    = var.domain_name
   dns_record_ttl = 80
+  dns_zone       = var.dns_zone
 }

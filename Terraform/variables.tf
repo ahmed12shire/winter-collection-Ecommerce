@@ -44,3 +44,8 @@ variable "image_tag" {
   type        = string
   description = "Docker image tag"
 }
+
+variable "dns_zone" {
+  description = "The Route53 DNS zone"
+  type        = string
+}
