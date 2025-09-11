@@ -55,3 +55,9 @@ module "route53" {
   alb_dns_name = module.alb.alb_dns_name
   app_lb_zone_id = module.alb.app_lb_zone_id
 }
+
+module "acm" {
+  source         = "./modules/acm"
+  dns_name       = var.dns_name
+  dns_record_ttl = 80
+}
