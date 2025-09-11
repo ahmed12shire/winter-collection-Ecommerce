@@ -12,3 +12,8 @@ variable "dns_zone" {
   type    = string
   
 }
+
+variable "zone_id" {
+  description = "The Route 53 zone ID used for DNS validation"
+  type        = string
+}
