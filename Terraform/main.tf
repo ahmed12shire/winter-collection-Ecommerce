@@ -45,6 +45,7 @@ module "alb" {
   vpc_id             = module.vpc.vpc_id
   public_subnet_ids  = module.vpc.public_subnet_ids
   security_group_ids = [module.vpc.public_sg_id]
+  certificate_arn    = module.acm.certificate_arn
 }
 
 module "route53" {
