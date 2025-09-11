@@ -18,6 +18,6 @@ resource "aws_route53_record" "dns-validation-main" {
   name            = tolist(aws_acm_certificate.winter-acm.domain_validation_options)[0].resource_record_name
   records         = [tolist(aws_acm_certificate.winter-acm.domain_validation_options)[0].resource_record_value]
   type            = tolist(aws_acm_certificate.winter-acm.domain_validation_options)[0].resource_record_type
-  zone_id         = aws_route53_zone.winter-zone.id
+  zone_id         = aws_route53_zone.winter-zone.zone_id 
   ttl             = var.dns_record_ttl
 }

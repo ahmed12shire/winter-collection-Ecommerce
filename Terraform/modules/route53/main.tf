@@ -7,7 +7,7 @@ resource "aws_route53_zone" "winter-zone" {
 }
 
 resource "aws_route53_record" "alb_record" {
-  zone_id = aws_route53_zone.main.zone_id 
+  zone_id = aws_route53_zone.winter-zone.zone_id 
   name    = var.domain_name
   type    = "A"
 
