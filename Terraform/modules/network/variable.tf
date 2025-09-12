@@ -2,7 +2,7 @@
 # variables
 
 variable "project_name" {
-  default = "ecs-project"
+  default = "winterEcomm"
 }
 
 variable "vpc_cidr" {
@@ -46,7 +46,7 @@ variable "public_sg_ingress" {
     ssh   = { from = 22, to = 22, protocol = "tcp" }
     http  = { from = 80, to = 80, protocol = "tcp" }
     https = { from = 443, to = 443, protocol = "tcp" }
-    ecs   = { from = 3000, to = 3000, protocol = "tcp" }
+    ecs   = { from = 80, to = 80, protocol = "tcp" }
 
   }
 }

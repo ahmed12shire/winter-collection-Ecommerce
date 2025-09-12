@@ -1,6 +1,6 @@
 
 
-resource "aws_instance" "ecsproject" {
+resource "aws_instance" "winterEcomm" {
   count         = var.instance_count
   ami           = local.instance_ami
   instance_type = var.instance_type
