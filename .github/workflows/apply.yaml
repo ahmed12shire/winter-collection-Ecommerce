@@ -5,6 +5,7 @@ on:
     workflows: ["Winter Collection Terraform Plan"]  # Trigger after "Terraform Plan" completes
     types:
       - completed
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}  
 
 jobs:
   terraform:

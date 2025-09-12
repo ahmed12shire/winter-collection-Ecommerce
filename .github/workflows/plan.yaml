@@ -48,4 +48,4 @@ jobs:
             -var="repository_name=${{ secrets.ECR_REPOSITORY }}" \
             -var="domain_name=${{ secrets.DOMAIN_NAME }}" \
             -var="dns_zone=${{ secrets.DNS_ZONE }}"
- 
+#  
