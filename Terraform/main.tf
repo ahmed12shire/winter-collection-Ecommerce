@@ -13,7 +13,7 @@ module "ec2" {
     ecr_repository         = module.ecr.ecr_repository_url   
     image_tag              = var.image_tag
     ecs_instance_profile_name = module.iam.ecs_instance_profile_name
-    # ecs_instance_role_name = module.iam.ecs_instance_role_name
+    # ecs_instance_role_name = module.iam.ecs_instance_role_names
 
 }
 
