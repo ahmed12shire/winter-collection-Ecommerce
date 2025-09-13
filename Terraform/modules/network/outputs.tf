@@ -3,7 +3,7 @@ output "public_subnet_ids" {
 }
 
 output "vpc_id" {
-  value = aws_vpc.ecsvpc.id
+  value = aws_vpc.winterEcommvpc.id
 }
 
 output "public_sg_id" {

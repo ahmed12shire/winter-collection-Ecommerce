@@ -10,7 +10,7 @@ resource "aws_vpc" "winterEcommvpc" {
 # PUBLIC SUBNET 1
 resource "aws_subnet" "public" {
   for_each   = var.public_subnets  
-  vpc_id     = aws_vpc.ecsvpc.id
+  vpc_id     = aws_vpc.winterEcommvpc.id
   cidr_block = each.value
   availability_zone = local.public_subnets_with_az[each.key]
   map_public_ip_on_launch = true
@@ -24,7 +24,7 @@ resource "aws_subnet" "public" {
 # PRIVATE SUBNET
 resource "aws_subnet" "private" {
   for_each   = var.private_subnets
-  vpc_id     = aws_vpc.ecsvpc.id
+  vpc_id     = aws_vpc.winterEcommvpc.id
   cidr_block = each.value
   availability_zone = local.private_subnets_with_az[each.key]
   map_public_ip_on_launch = false
@@ -37,7 +37,7 @@ resource "aws_subnet" "private" {
 
 # INTERNET GATEWAY
 resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.ecsvpc.id
+  vpc_id = aws_vpc.winterEcommvpc.id
 
   tags = merge(local.common_tags, {
     Name = "${var.project_name}-igw"
@@ -65,7 +65,7 @@ resource "aws_nat_gateway" "nat" {
 
 # PUBLIC ROUTE TABLE 
 resource "aws_route_table" "public" {
-  vpc_id = aws_vpc.ecsvpc.id
+  vpc_id = aws_vpc.winterEcommvpc.id
 
   route {
     cidr_block = var.allow_cidrs[0]
@@ -89,7 +89,7 @@ resource "aws_route_table_association" "public_rt_association" {
 
 # PRIVATE ROUTE TABLE
 resource "aws_route_table" "private" {
-  vpc_id = aws_vpc.ecsvpc.id
+  vpc_id = aws_vpc.winterEcommvpc.id
   route {
     cidr_block     = var.allow_cidrs[0]
     nat_gateway_id = aws_nat_gateway.nat.id
@@ -111,7 +111,7 @@ resource "aws_route_table_association" "private_rt_association" {
 
 # PUBLIC NACL
 resource "aws_network_acl" "public" {
-  vpc_id = aws_vpc.ecsvpc.id
+  vpc_id = aws_vpc.winterEcommvpc.id
 
   egress {
     protocol   = "-1"
@@ -145,7 +145,7 @@ resource "aws_network_acl" "public" {
 
 # PRIVATE NACL
 resource "aws_network_acl" "private" {
-  vpc_id = aws_vpc.ecsvpc.id
+  vpc_id = aws_vpc.winterEcommvpc.id
 
   egress {
     protocol   = "-1"
@@ -181,7 +181,7 @@ resource "aws_network_acl_association" "private_nacl_association" {
 resource "aws_security_group" "public_sg" {
   name        = "${var.project_name}-public-sg"
   description = "Allow web server traffic + ssh traffic"
-  vpc_id      = aws_vpc.ecsvpc.id
+  vpc_id      = aws_vpc.winterEcommvpc.id
 
   tags = merge(local.common_tags, {
     Name = "${var.project_name}-public-sg"
