@@ -1,0 +1,45 @@
+name: Winter Collection Terraform Destroy
+
+on:
+  workflow_dispatch:
+    inputs:
+      description: 'type "yes" to confirm deplyment'
+      required: true
+      default: 'no'
+
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.5
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Terraform Init
+        working-directory: ./Terraform
+        run: terraform init -upgrade
+
+      - name: Terraform Destroy
+        working-directory: ./Terraform
+        run: |
+          terraform destroy -auto-approve \
+            -var="aws_account_id=${{ secrets.AWS_ACCOUNT_ID }}" \
+            -var="aws_region=${{ secrets.AWS_REGION }}" \
+            -var="image_tag=${{ secrets.IMAGE_TAG }}" \
+            -var="repository_name=${{ secrets.ECR_REPOSITORY }}" \
+            -var="domain_name=${{ secrets.DOMAIN_NAME }}" \
+            -var="dns_zone=${{ secrets.DNS_ZONE }}"
