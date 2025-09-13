@@ -189,15 +189,15 @@ resource "aws_security_group" "public_sg" {
 }
 
 # Ingress rules
-resource "aws_vpc_security_group_ingress_rule" "ingress" {
+# resource "aws_vpc_security_group_ingress_rule" "ingress" {
 
-  for_each = var.public_sg_ingress
-  security_group_id = aws_security_group.public_sg.id
-  cidr_ipv4         = var.allow_cidrs[0]
-  from_port         = each.value.from
-  to_port           = each.value.to
-  ip_protocol       = each.value.protocol
-}
+#   for_each = var.public_sg_ingress
+#   security_group_id = aws_security_group.public_sg.id
+#   cidr_ipv4         = var.allow_cidrs[0]
+#   from_port         = each.value.from
+#   to_port           = each.value.to
+#   ip_protocol       = each.value.protocol
+# }
 
 # Egress (all traffic)
 resource "aws_vpc_security_group_egress_rule" "all" {
