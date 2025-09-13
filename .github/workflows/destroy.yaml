@@ -3,9 +3,10 @@ name: Winter Collection Terraform Destroy
 on:
   workflow_dispatch:
     inputs:
-      description: 'type "yes" to confirm deplyment'
-      required: true
-      default: 'no'
+      confirmation:
+        description: 'type "yes" to confirm deplyment'
+        required: true
+        default: 'no'
 
 
 jobs:
