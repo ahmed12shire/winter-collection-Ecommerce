@@ -6,6 +6,7 @@ on:
       - main
 
 # --- Docker Build and Push to ECR ---
+jobs:
   Docker:
     runs-on: ubuntu-latest
 
