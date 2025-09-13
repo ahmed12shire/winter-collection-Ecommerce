@@ -1,4 +1,4 @@
-resource "aws_vpc" "ecsvpc" {
+resource "aws_vpc" "winterEcommvpc" {
   cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
 

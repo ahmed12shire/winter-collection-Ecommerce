@@ -52,7 +52,7 @@ jobs:
       - name: Terraform Apply
         working-directory: ./Terraform
         run: |
-          terraform apply -input=false \
+          terraform apply -input=false -auto-approve \
             -var="aws_account_id=${{ secrets.AWS_ACCOUNT_ID }}" \
             -var="aws_region=${{ secrets.AWS_REGION }}" \
             -var="image_tag=${{ secrets.IMAGE_TAG }}" \
