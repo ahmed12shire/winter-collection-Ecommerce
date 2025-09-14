@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "task" {
     essential = true
     portMappings = [{
       containerPort = 80
-      hostPort      = 80
+      hostPort      = 0
       protocol      = "tcp"
     }]
   }])
