@@ -1,9 +1,12 @@
 name: Winter Collection Image Build&Push
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: 'type "yes" to confirm deplyment'
+        required: true
+        default: 'no'
 
 # --- Docker Build and Push to ECR ---
 jobs:
