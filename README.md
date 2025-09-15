@@ -20,6 +20,7 @@ The Winter Collection Ecommerce App offers a simple and stylish way to shop cozy
 
 # Terraform Structure
 
+```plaintext
 terraform/
 ├── main.tf
 ├── provider.tf
