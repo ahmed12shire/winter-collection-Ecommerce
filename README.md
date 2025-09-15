@@ -20,43 +20,45 @@ The Winter Collection Ecommerce App offers a simple and stylish way to shop cozy
 
 # Terraform Structure
 
-terraform/
-├── main.tf
-├── provider.tf
-├── output.tf
-├── variable.tf
-└── modules/
-├── network/
-│ ├── main.tf
-│ ├── variable.tf
-│ └── output.tf
-├── compute/
-│ ├── main.tf
-│ ├── variable.tf
-│ └── output.tf
-├── cluster/
-│ ├── main.tf
-│ ├── variable.tf
-│ └── output.tf
-├── ecr/
-│ ├── main.tf
-│ ├── variable.tf
-│ └── output.tf
-├── iam/
-│ ├── main.tf
-│ └── output.tf
-├── route53/
-│ ├── main.tf
-│ ├── variable.tf
-│ └── output.tf
-├── alb/
-│ ├── main.tf
-│ ├── variable.tf
-│ └── output.tf
-└── acm/
-├── main.tf
-├── variable.tf
-└── output.tf
+.
+├── terraform/
+│   ├── main.tf
+│   ├── provider.tf
+│   ├── output.tf
+│   ├── variable.tf
+│   └── modules/
+│       ├── network/
+│       │   ├── main.tf
+│       │   ├── variable.tf
+│       │   └── output.tf
+│       ├── compute/
+│       │   ├── main.tf
+│       │   ├── variable.tf
+│       │   └── output.tf
+│       ├── ecr/
+│       │   ├── main.tf
+│       │   ├── variable.tf
+│       │   └── output.tf
+│       ├── iam/
+│       │   ├── main.tf
+│       │   └── output.tf
+│       ├── alb/
+│       │   ├── main.tf
+│       │   ├── variable.tf
+│       │   └── output.tf
+│       ├── ecs/
+│       │   ├── main.tf
+│       │   ├── variable.tf
+│       │   └── output.tf
+│       ├── route53/
+│       │   ├── main.tf
+│       │   ├── variable.tf
+│       │   └── output.tf
+│       └── acm/
+│           ├── main.tf
+│           ├── variable.tf
+│           └── output.tf
+
 
 
 # Modules
