@@ -29,7 +29,7 @@ resource "aws_lb_target_group" "app_target_group" {
 }
 
 resource "aws_lb_listener" "winter-listener-http" {
-  load_balancer_arn = aws_lb.delta-alb.arn
+  load_balancer_arn = aws_lb.app_lb.arn
   port              = "80"
   protocol          = "HTTP"
 
