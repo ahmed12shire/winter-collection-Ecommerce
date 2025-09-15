@@ -66,8 +66,9 @@ variable "ecs_user_data" {
   description = "User data script for ECS instances"
   default     = <<-EOT
                 #!/bin/bash
-                echo ECS_CLUSTER=winterEcomm-service >> /etc/ecs/ecs.config
-                systemctl restart ecs
+                echo ECS_CLUSTER=winterEcomm-cluster >> /etc/ecs/ecs.config
+                systemctl stop ecs
+                systemctl start ecs
                 EOT
 }
 
